@@ -1,16 +1,20 @@
-# Unofficial Max Messenger Private Mobile API SDK
 
-**Неофициальная библиотека / SDK для Max Messenger**  
-на основе reverse-engineered мобильного private API
+# Unofficial Max Messenger Private API SDK (Reverse-Engineered Mobile Client)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
 [![Node.js](https://img.shields.io/badge/node.js-18%2B-green)](https://nodejs.org/)
 
-**Важное предупреждение**  
+**Reverse-engineered mobile private API** мессенджера **Max** (от VK) на базе официального Android-приложения (пакет `ru.oneme.app`).
+
+Это **не WebSocket/Web-версия** (как в браузерных клиентах), а именно **мобильный API**, эмулирующий поведение официального приложения для Android/iOS.
+
 Это **неофициальная** библиотека, созданная путём reverse engineering протокола мобильного приложения Max Messenger.  
 Она **не связана** с VK Group, разработчиками Max Messenger и не является официальным продуктом.  
-Используйте на свой страх и риск. Возможны блокировки аккаунта, изменения протокола и другие риски.
+**Официальная документация Bot API** (рекомендуем для стабильных ботов):  
+https://dev.max.ru/ui — там полная поддержка, но это строго для ботов с токеном (ограничения по функционалу, нет multi-device как у пользователя).
+
+Наш SDK даёт **полный user-level доступ** без ограничений Bot API: авторизация по номеру телефона, multi-account, полный набор сообщений/медиа/статусов/звонков.
 
 ## Возможности
 
@@ -69,8 +73,6 @@ await client.run_polling()
 
 ## Документация
 
-Полная документация и примеры → [docs/README.md](docs/README.md)
-
 Основные модули:
 - `auth` — авторизация и сессии
 - `messages` — работа с сообщениями
@@ -86,7 +88,7 @@ await client.run_polling()
 
 ## Contribute
 
-Приветствуются pull request'ы:
+Приветствуются issues / pull request'ы:
 - фиксы после апдейтов протокола
 - новые возможности
 - улучшение стабильности
@@ -95,6 +97,33 @@ await client.run_polling()
 ## Лицензия
 
 MIT License — используйте свободно, но без гарантий.
+
+
+## Другие репозитории (официальные Bot API wrappers — без reverse и недокументированных функций)
+
+| Категория          | Репозиторий                                      | Последний коммит (примерно)     |
+|--------------------|--------------------------------------------------|---------------------------------|
+| Mobile API        | https://github.com/unosmm/max-messenger-mobile-api-unofficial | ~март 2026 (2 коммита всего, низкая активность) |
+| WebSocket API     | https://github.com/mochensky/max-user-api       | ~2025–2026 (низкая активность) |
+| WebSocket API     | https://github.com/arsrus721/maxclientapi-go    | ~2025 (низкая активность)      |
+| WebSocket API     | https://github.com/weristvlad/max-fuck          | Неизвестно / низкая активность |
+| WebSocket API     | https://github.com/arsrus721/maxclientapi       | ~2025–2026                     |
+| Official Web API  | https://github.com/genixg/MAX.Messenger.API     | Устаревший                     |
+| Official Web API  | https://github.com/MaxApiTeam/PyMax             | 11 февраля 2026 (архив)        |
+| Official Bot API  | https://github.com/BushlanovDev/max-bot-api-client-php | 13 марта 2026                  |
+| Official Bot API  | https://github.com/love-apples/maxapi           | 19 марта 2026                  |
+| Official Bot API  | https://github.com/KayumovRu/maxgram            | ~2025–2026                     |
+| Official Bot API  | https://github.com/nepobo/max-api               | ~2025–2026                     |
+
+
+### Кратко по категориям
+- **WebSocket API** — браузерные reverse на базе WebSocket (Web-версия Max).
+- **Official Web API** — неофициальные клиенты внутренней Web-версии (не Bot API).
+- **Official Bot API** — официальные wrappers по https://dev.max.ru/ (самые стабильные).
+- **Mobile API** — reverse мобильного приложения (Android/iOS, пакет ru.oneme.app).
+
+Если нужно добавить столбец (например, язык программирования) или уточнить даты — дай знать! 🚀
+Если проект использует **официальный токен Bot API** — он стабильнее и не требует реверса.
 
 ---
 
